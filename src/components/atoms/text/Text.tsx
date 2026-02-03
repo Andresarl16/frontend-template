@@ -1,13 +1,16 @@
+import type React from 'react';
 import { cn } from '@/lib/cn';
-import React from 'react';
+import {
+  type ResponsiveCVA,
+  responsiveCva,
+} from '@/lib/responsive/responsiveCva';
 import {
   fontFamilyEnumObject,
   fontSizeEnumObject,
   fontWeightEnumObject,
+  type TextVariantsProps,
   textVariants,
-  TextVariantsProps,
 } from './text.cva';
-import { responsiveCva, ResponsiveCVA } from '@/lib/responsive/cvaResponsive';
 
 // If you don't want to limit the HTML tags, you can replace AllowedTags with React.ElementType
 export type TextVariantsAllowedTags =

@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "biome check",
-    "format": "biome format --write"
+    "format-and-lint": "biome check .",
+    "format-and-lint:error": "biome check . --diagnostic-level=error",
+    "format-and-lint:fix": "biome check . --write"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",
