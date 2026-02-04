@@ -1,4 +1,5 @@
 import type React from 'react';
+import { getEnumObjectFromArray } from '@/lib/arrayToEnum';
 import { cn } from '@/lib/cn';
 import {
   type ResponsiveCVA,
@@ -12,27 +13,30 @@ import {
   textVariants,
 } from './text.cva';
 
-// If you don't want to limit the HTML tags, you can replace AllowedTags with React.ElementType
-export type TextVariantsAllowedTags =
-  | 'p'
-  | 'h1'
-  | 'h2'
-  | 'h3'
-  | 'h4'
-  | 'h5'
-  | 'h6'
-  | 'span'
-  | 'li';
+const textAllowedTags = [
+  'p',
+  'h1',
+  'h2',
+  'h3',
+  'h4',
+  'h5',
+  'h6',
+  'span',
+  'li',
+] as const;
+export type TTextAllowedTag = (typeof textAllowedTags)[number];
+export const textAllowedTagsEnumObject =
+  getEnumObjectFromArray(textAllowedTags);
 
 export interface TextProps
   extends React.HTMLAttributes<HTMLElement>,
     TextVariantsProps {
-  as?: TextVariantsAllowedTags;
+  as?: TTextAllowedTag;
   responsiveVariants?: ResponsiveCVA<TextVariantsProps>;
 }
 
 function Text({
-  as: Component = 'p',
+  as: Component = textAllowedTagsEnumObject.p,
   children,
   className,
   fontFamily = fontFamilyEnumObject.text,

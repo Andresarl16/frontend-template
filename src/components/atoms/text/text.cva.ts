@@ -2,11 +2,11 @@ import { cva, type VariantProps } from 'class-variance-authority';
 
 import { getEnumObjectFromArray } from '@/lib/arrayToEnum';
 
-export const fontFamily = ['text', 'display'] as const;
-export type TFontFamilyEnum = (typeof fontFamily)[number];
-export const fontFamilyEnumObject = getEnumObjectFromArray(fontFamily);
+export const fontFamilies = ['text', 'display'] as const;
+export type TFontFamilyEnum = (typeof fontFamilies)[number];
+export const fontFamilyEnumObject = getEnumObjectFromArray(fontFamilies);
 
-export const fontWeight = [
+export const fontWeights = [
   'thin',
   'extraLight',
   'light',
@@ -17,8 +17,8 @@ export const fontWeight = [
   'extraBold',
   'black',
 ] as const;
-export type TFontWeightEnum = (typeof fontWeight)[number];
-export const fontWeightEnumObject = getEnumObjectFromArray(fontWeight);
+export type TFontWeightEnum = (typeof fontWeights)[number];
+export const fontWeightEnumObject = getEnumObjectFromArray(fontWeights);
 
 export const fontSize = [
   '4xs',
