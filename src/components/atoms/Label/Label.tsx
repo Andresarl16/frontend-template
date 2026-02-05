@@ -6,11 +6,11 @@ import {
   fontSizeEnumObject,
   fontWeightEnumObject,
 } from '../Text/text.cva';
+import { labelVariants } from './label.cva';
 import {
   labelIntentEnumObject,
-  labelVariants,
   type TLabelIntentEnum,
-} from './label.cva';
+} from './shared/intent.types';
 
 export interface LabelProps
   extends Omit<TextProps & React.LabelHTMLAttributes<HTMLLabelElement>, 'as'> {

@@ -6,14 +6,14 @@ import {
   fontSizeEnumObject,
   fontWeightEnumObject,
 } from '../Text/text.cva';
+import { fieldMessageVariants } from './fieldMessage.cva';
 import {
-  fieldMessageIntentEnumObject,
-  fieldMessageVariants,
-  type TFieldMessageIntentEnum,
-} from './fieldMessage.cva';
+  labelIntentEnumObject,
+  type TLabelIntentEnum,
+} from './shared/intent.types';
 
 export interface FieldMessageProps extends Omit<TextProps, 'as'> {
-  intent?: TFieldMessageIntentEnum;
+  intent?: TLabelIntentEnum;
 }
 
 function FieldMessage({
@@ -22,7 +22,7 @@ function FieldMessage({
   fontFamily = fontFamilyEnumObject.text,
   fontWeight = fontWeightEnumObject.medium,
   fontSize = fontSizeEnumObject.sm,
-  intent = fieldMessageIntentEnumObject.default,
+  intent = labelIntentEnumObject.default,
   ...props
 }: FieldMessageProps) {
   return (
