@@ -23,6 +23,7 @@ const textAllowedTags = [
   'h6',
   'span',
   'li',
+  'label',
 ] as const;
 export type TTextAllowedTag = (typeof textAllowedTags)[number];
 export const textAllowedTagsEnumObject =
@@ -32,6 +33,7 @@ export interface TextProps
   extends React.HTMLAttributes<HTMLElement>,
     TextVariantsProps {
   as?: TTextAllowedTag;
+  children: React.ReactNode;
   responsiveVariants?: ResponsiveCVA<TextVariantsProps>;
 }
 
