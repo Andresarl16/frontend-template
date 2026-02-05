@@ -6,16 +6,12 @@ import {
   type ResponsiveCVA,
   responsiveCva,
 } from '@/lib/responsive/responsiveCva';
-import { FieldMessage } from '../Label';
-import Label from '../Label/Label';
+import { FieldMessage, Label } from '../../Label';
+import { controlVariants } from '../shared/control.cva';
+import { inputStateEnumObject } from '../shared/states.types';
 import InputReset from './InputReset';
-import {
-  controlVariants,
-  type InputVariantProps,
-  inputSizeEnumObject,
-  inputStateEnumObject,
-  inputVariants,
-} from './input.cva';
+import { type InputVariantProps, inputVariants } from './input.cva';
+import { inputSizeEnumObject } from '../shared/size.types';
 
 export interface TInputClasses {
   root?: string;
@@ -140,14 +136,12 @@ function Input({
 
       {error ? (
         <FieldMessage className={classes?.error} intent="error">
-          {' '}
-          {error}{' '}
+          {error}
         </FieldMessage>
       ) : null}
       {hintText ? (
         <FieldMessage className={classes?.hint} intent="info">
-          {' '}
-          {hintText}{' '}
+          {hintText}
         </FieldMessage>
       ) : null}
       <InputReset />
