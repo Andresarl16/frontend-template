@@ -10,7 +10,6 @@ import { FieldMessage, Label } from '../../Label';
 import { controlVariants } from '../shared/control.cva';
 import { inputSizeEnumObject } from '../shared/size.types';
 import { getInputState } from '../shared/states.types';
-import InputReset from './InputReset';
 import {
   type InputControlVariantProps,
   inputControlVariants,
@@ -143,7 +142,6 @@ function Input({
           {hintText}
         </FieldMessage>
       ) : null}
-      <InputReset />
     </div>
   );
 }
