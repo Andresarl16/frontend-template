@@ -1,2 +1,2 @@
 export const inputGeneralClasses =
-  'flex flex-row w-full border rounded-lg placeholder:txt-placeholder items-center shadow-sm txt-primary-900 px-3 gap-2';
+  'w-full h-full m-0 bg-transparent focus:ring-0 txt-primary-900 font-text outline-none focus:outline-none';

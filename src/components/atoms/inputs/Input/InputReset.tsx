@@ -1,5 +1,6 @@
 function InputReset() {
   return (
+    // TODO: Move the input reset to Global CSS
     <style>{`
       input[type='number']::-webkit-outer-spin-button,
       input[type='number']::-webkit-inner-spin-button {

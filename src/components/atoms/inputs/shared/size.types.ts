@@ -5,6 +5,6 @@ export type TInputSizeEnum = (typeof inputSizes)[number];
 export const inputSizeEnumObject = getEnumObjectFromArray(inputSizes);
 
 export const inputSizeClasses = {
-  [inputSizeEnumObject.sm]: 'h-10',
-  [inputSizeEnumObject.md]: 'h-11',
+  [inputSizeEnumObject.sm]: 'min-h-10 h-10',
+  [inputSizeEnumObject.md]: 'min-h-11 h-11',
 };

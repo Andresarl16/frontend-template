@@ -1,4 +1,6 @@
 import Image from 'next/image';
+import { Input } from '@/components/atoms/inputs/Input';
+import { TextArea } from '@/components/atoms/inputs/TextArea';
 
 export default function Home() {
   return (
@@ -34,6 +36,17 @@ export default function Home() {
             center.
           </p>
         </div>
+
+        <div className="flex">
+          <Input label="hola" inputSize={'md'} />
+          <TextArea label="hola" inputSize={'md'} />
+        </div>
+
+        <div className="flex">
+          <TextArea label="hola" inputSize={'sm'} hintText="holi" />
+          <Input label="hola" inputSize={'sm'} />
+        </div>
+
         <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
           <a
             className="bg-white flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"

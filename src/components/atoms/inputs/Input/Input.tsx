@@ -8,10 +8,14 @@ import {
 } from '@/lib/responsive/responsiveCva';
 import { FieldMessage, Label } from '../../Label';
 import { controlVariants } from '../shared/control.cva';
-import { inputStateEnumObject } from '../shared/states.types';
-import InputReset from './InputReset';
-import { type InputVariantProps, inputVariants } from './input.cva';
 import { inputSizeEnumObject } from '../shared/size.types';
+import { getInputState } from '../shared/states.types';
+import InputReset from './InputReset';
+import {
+  type InputControlVariantProps,
+  inputControlVariants,
+  inputVariants,
+} from './input.cva';
 
 export interface TInputClasses {
   root?: string;
@@ -22,7 +26,7 @@ export interface TInputClasses {
   hint?: string;
 }
 
-export interface InputProps extends Omit<InputVariantProps, 'inputState'> {
+export interface InputProps extends InputControlVariantProps {
   label?: string;
   rightChildren?: React.ReactNode;
   leftChildren?: React.ReactNode;
@@ -33,7 +37,7 @@ export interface InputProps extends Omit<InputVariantProps, 'inputState'> {
     React.InputHTMLAttributes<HTMLInputElement>,
     HTMLInputElement
   >;
-  responsiveVariants?: ResponsiveCVA<Omit<InputVariantProps, 'inputState'>>;
+  responsiveVariants?: ResponsiveCVA<InputControlVariantProps>;
 }
 
 function Input({
@@ -49,12 +53,6 @@ function Input({
 }: InputProps) {
   const reactId = React.useId();
   const inputId = inputProps?.id ?? reactId;
-
-  function getInputState(options: { error?: string; disabled?: boolean }) {
-    if (options.error) return inputStateEnumObject.error;
-    if (options.disabled) return inputStateEnumObject.disabled;
-    return inputStateEnumObject.default;
-  }
 
   const inputState = getInputState({
     error,
@@ -103,6 +101,11 @@ function Input({
           controlVariants({
             inputState,
           }),
+          responsiveCva(
+            { inputSize },
+            inputControlVariants,
+            responsiveVariants
+          ),
           classes?.control
         )}
       >
@@ -120,11 +123,7 @@ function Input({
           }
           onWheel={handleWheel}
           className={cn(
-            responsiveCva(
-              { inputState, inputSize },
-              inputVariants,
-              responsiveVariants
-            ),
+            inputVariants({ inputState }),
             classes?.input,
             inputProps?.className
           )}

@@ -10,3 +10,9 @@ export const inputStateClasses = {
     'cursor-not-allowed placeholder:dark:text-gray-500',
   [inputStateEnumObject.error]: '',
 };
+
+export function getInputState(options: { error?: string; disabled?: boolean }) {
+  if (options.error) return inputStateEnumObject.error;
+  if (options.disabled) return inputStateEnumObject.disabled;
+  return inputStateEnumObject.default;
+}
